@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>.NET ERP Assessment</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:40px auto;padding:0 20px;color:#222;line-height:1.55}
+h1{margin-bottom:4px} h2{margin-top:28px}
+.box{border:1px solid #ddd;border-radius:10px;padding:16px;margin:14px 0}
+.xp{float:right;font-weight:bold}
+details{background:#f7f7f7;border-radius:8px;padding:10px 12px;margin-top:10px}
+code{background:#f3f3f3;padding:2px 5px;border-radius:4px}
+.task{margin:8px 0}
+.note{background:#fff8dc;border-left:4px solid #e6a700;padding:10px 12px}
+</style>
+</head>
+<body>
+<h1>.NET ERP Assessment</h1>
+<p><b>Starting point:</b> Use the provided <code>ERPAssessment</code> Web API project. Complete all tasks inside the same application. Do not create separate projects for each task.</p>
+
+<div class="box">
+<h2>Scenario</h2>
+<p>You have joined a company that is building a small internal ERP system. The first version already stores employees, departments, roles and responsibilities. HR now wants you to improve it step by step.</p>
+<p>The aim is not only to make the code work. Be ready to explain your decisions while you work.</p>
+</div>
+
+<div class="box">
+<span class="xp">15 XP</span>
+<h2>Task 1 — Improve the Employee Model</h2>
+<div class="task">☐ Add validation so an employee cannot have a negative salary.</div>
+<div class="task">☐ Prevent an employee from being created with an empty name or email.</div>
+<div class="task">☐ Decide where this validation should live.</div>
+<p><b>Explain:</b> Why did you place the validation there?</p>
+<details><summary>Hint</summary><p>Think about whether invalid data should be stopped in the controller, model, or service.</p></details>
+</div>
+
+<div class="box">
+<span class="xp">20 XP</span>
+<h2>Task 2 — Add Update and Delete</h2>
+<div class="task">☐ Add <code>PUT /api/employees/{id}</code>.</div>
+<div class="task">☐ Add <code>DELETE /api/employees/{id}</code>.</div>
+<div class="task">☐ Return sensible HTTP status codes.</div>
+<p><b>Explain:</b> When would you return 200, 204, 400 and 404?</p>
+<details><summary>Hint</summary><p>Think about what the API caller needs to know after each operation.</p></details>
+</div>
+
+<div class="box">
+<span class="xp">20 XP</span>
+<h2>Task 3 — Use OOP</h2>
+<p>The company now hires both permanent employees and contractors.</p>
+<div class="task">☐ Add <code>PermanentEmployee</code> and <code>ContractEmployee</code>.</div>
+<div class="task">☐ Add a way to calculate pay differently for each employee type.</div>
+<div class="task">☐ Use inheritance, abstraction or polymorphism where it makes sense.</div>
+<p><b>Explain:</b> What OOP principle did you use and why?</p>
+<details><summary>Hidden sample idea</summary><p>A base employee type could expose a method such as <code>CalculatePay()</code>, with each employee type calculating it differently.</p></details>
+</div>
+
+<div class="box">
+<span class="xp">15 XP</span>
+<h2>Task 4 — Department Search</h2>
+<div class="task">☐ Add an endpoint that returns employees for a department.</div>
+<div class="task">☐ Decide what the route should look like.</div>
+<p><b>Explain:</b> Why did you choose that route?</p>
+<details><summary>Hint</summary><p>Examples could include a department id in the route or a query-string filter. Pick one and explain it.</p></details>
+</div>
+
+<div class="box">
+<span class="xp">20 XP</span>
+<h2>Task 5 — Debugging Challenge</h2>
+<p>Your mentor will introduce a small bug into the application.</p>
+<div class="task">☐ Reproduce the problem.</div>
+<div class="task">☐ Use breakpoints and inspect variables.</div>
+<div class="task">☐ Explain the root cause before fixing it.</div>
+<div class="task">☐ Fix the problem without breaking another endpoint.</div>
+<p><b>Explain:</b> What did you inspect, what did you expect, and what did you actually see?</p>
+</div>
+
+<div class="box">
+<span class="xp">10 XP</span>
+<h2>Final Discussion</h2>
+<p>Be ready to answer:</p>
+<ul>
+<li>Why did you create separate Employee, Department and Role classes?</li>
+<li>Why should salary use <code>decimal</code> rather than <code>string</code>?</li>
+<li>Why is dependency injection useful?</li>
+<li>What should happen if an employee is not found?</li>
+<li>What would you change if this application used a real SQL database?</li>
+<li>What part of your solution would you improve if you had another hour?</li>
+</ul>
+</div>
+
+<div class="note">
+<b>Mentor note:</b> Give points for both implementation and explanation. A working solution with weak reasoning should not receive full marks.
+</div>
+
+<p><b>Total: 100 XP</b></p>
+</body>
+</html>
