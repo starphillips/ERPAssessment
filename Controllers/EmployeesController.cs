@@ -44,4 +44,27 @@ public class EmployeesController : ControllerBase
             new { id = created.Id },
             created);
     }
+
+    [HttpPut("{id:int}")]
+    public ActionResult<Employee> Edit(int id, Employee employee)
+    {
+        var edited = _employeeService.Update(id, employee);
+        if (edited == null)
+        {
+            return NotFound();
+        }
+        return Ok(edited);
+    }
+
+    [HttpDelete("{id:int}")]
+    public ActionResult<Employee> Delete(int id)
+    {
+        var deleted = _employeeService.Delete(id);
+        if (deleted == null)
+        {
+            return NotFound();
+        }
+        return Ok(deleted);
+    }
+
 }

@@ -43,4 +43,38 @@ public class EmployeeService
         _employees.Add(employee);
         return employee;
     }
+
+    public Employee? Delete(int id)
+    {
+
+        var match = _employees.FirstOrDefault(x => x.Id == id);
+        if (match == null)
+        {
+            return null;
+        }
+        
+        _employees.Remove(match);
+
+        return match;
+    }
+
+    public Employee? Update(int id, Employee employee)
+    {
+        var existing = _employees.FirstOrDefault(x => x.Id == id);
+        if (existing == null)
+        {
+            return null;
+        }
+
+        existing.Name = employee.Name;
+        existing.Email = employee.Email;
+        existing.JoiningDate = employee.JoiningDate;
+        existing.Salary = employee.Salary;
+        existing.Department = employee.Department;
+        existing.Role = employee.Role;
+
+        return existing;
+
+    }
+
 }
