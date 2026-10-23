@@ -85,4 +85,23 @@ public class EmployeeService
         return existing;
     }
 
+    public List<Employee> GetEmployeesByDepartmentID(int departmentID)
+    {
+        List<Employee> employeesInDepartment = new List<Employee>();
+
+        foreach (Employee employee in _employees)
+        {
+            if (employee.Department == null)
+            {
+                continue;
+            }
+            else if (departmentID == employee.Department.Id)
+            {
+                employeesInDepartment.Add(employee);
+            }
+            
+        }
+        return employeesInDepartment;
+    }
+
 }

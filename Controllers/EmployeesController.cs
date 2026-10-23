@@ -67,4 +67,11 @@ public class EmployeesController : ControllerBase
         return Ok(deleted);
     }
 
+    [HttpGet("department/{departmentID:int}")]
+    public ActionResult<List<Employee>> GetEmployeesByDepartmentID(int departmentID)
+    {
+        var departmentEmployees = _employeeService.GetEmployeesByDepartmentID(departmentID);
+        return Ok(departmentEmployees);
+    }
+
 }

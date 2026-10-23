@@ -25,3 +25,8 @@ I used the abstraction OOP principle because a user should have a specific type 
 
 This ensures every created employee will still inherit the same properties from the Employee class, but each child class performs a different calculation for CalculatePay(), depending on the Employee type, using Polymorphism.
 
+## Task 4: Department Search
+
+I added endpoint **/department/{departmentID}** to return employees for a department. I chose this route because it reflects how the other routes of the system operate but can now reduce search options to finding employees by department and the specific ID. 
+
+Out of scope: it is possible to create multiple departments under one ID, and the same department under multiple IDs, which can make the system less robust if a user was to enter the wrong details by accident. 
