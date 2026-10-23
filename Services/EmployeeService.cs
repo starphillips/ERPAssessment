@@ -6,7 +6,7 @@ public class EmployeeService
 {
     private readonly List<Employee> _employees = new()
     {
-        new Employee
+        new PermanentEmployee
         {
             Id = 1,
             Name = "Alex Green",
@@ -69,12 +69,20 @@ public class EmployeeService
         existing.Name = employee.Name;
         existing.Email = employee.Email;
         existing.JoiningDate = employee.JoiningDate;
-        existing.Salary = employee.Salary;
         existing.Department = employee.Department;
         existing.Role = employee.Role;
 
-        return existing;
+        if (existing is PermanentEmployee existingEmployee && employee is PermanentEmployee updatedEmployee)
+        {
+            existingEmployee.Salary = updatedEmployee.Salary;
+        }
+        else if (existing is ContractEmployee existingContractor && employee is ContractEmployee updatedContractor)
+        {
+            existingContractor.HourlyRate = updatedContractor.HourlyRate;
+            existingContractor.HoursWorked = updatedContractor.HoursWorked;
+        }
 
+        return existing;
     }
 
 }
